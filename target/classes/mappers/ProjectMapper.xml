@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dgit.mapper.ProjectMapper">
+
+	<select id="selectlistProject" resultType="Project">
+		select * from
+		projectmanagement
+		order by projectno desc
+	</select>
+
+	<insert id="insertProject" parameterType="Project">
+		insert into projectmanagement
+		(projectno,projectname,projectcontent,regdate,enddate,nowproject)
+		value(#{projectno},#{projectname},#{projectcontent},#{regdate},#{enddate},#{nowproject})
+	</insert>
+	
+	<select id="selectlistProjectByid" resultType="Project">
+		select * from
+		projectmanagement where projectno = #{projectno};
+	</select>
+	
+	<update id="updateproject">
+		update projectmanagement set projectname=#{projectname},projectcontent=#{projectcontent},regdate=#{regdate},enddate=#{enddate},nowproject=#{nowproject}
+		where  projectno = #{projectno} 
+	</update>
+	
+	<delete id="deleteproject">
+		delete from projectmanagement where projectno = #{projectno} 
+	</delete>
+	
+</mapper>

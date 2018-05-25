@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+label {
+	width: 120px;
+	float: left;
+}
+
+.error, .error2 {
+	color: red;
+	display: none;
+}
